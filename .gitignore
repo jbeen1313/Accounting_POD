@@ -1,0 +1,3 @@
+node_modules/
+backend/meeting.db
+package-lock.json
