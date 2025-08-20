@@ -36,3 +36,11 @@ npm test
 
 ## Notes
 - This prototype uses local storage for simplicity. Consider adding real authentication and cloud storage for multiple users.
+
+## Deploying to GitHub Pages
+1. Update the `homepage` field in `package.json` with your GitHub username.
+2. Build and publish the static site:
+```bash
+npm run deploy
+```
+This exports the web build and pushes it to the `gh-pages` branch for hosting.
