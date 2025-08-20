@@ -7,6 +7,8 @@ A simple React Native (Expo) application for children to scan books, track progr
 - Fetch book details from Open Library
 - Generate 5-question multiple choice quizzes using OpenAI
 - Track progress toward 1,000 books
+- Save books and quiz scores locally
+- Simple name-based login for kids
 
 ## Setup
 1. Install [Node.js](https://nodejs.org/) and [Expo CLI](https://docs.expo.dev).
@@ -14,9 +16,9 @@ A simple React Native (Expo) application for children to scan books, track progr
    ```bash
    npm install
    ```
-3. Set your OpenAI API key:
-   ```bash
-   export OPENAI_API_KEY=your_key_here
+3. Create a `.env` file with your OpenAI key:
+   ```env
+   OPENAI_API_KEY=your_key_here
    ```
 4. Run the project:
    ```bash
@@ -25,6 +27,12 @@ A simple React Native (Expo) application for children to scan books, track progr
 
 Scan the QR code with the Expo Go app on your device to test.
 
+## Testing
+Run unit tests for service functions:
+
+```bash
+npm test
+```
+
 ## Notes
-- This is a basic prototype and does not persist data between sessions.
-- Consider adding authentication and persistent storage (e.g., Firebase) for production use.
+- This prototype uses local storage for simplicity. Consider adding real authentication and cloud storage for multiple users.

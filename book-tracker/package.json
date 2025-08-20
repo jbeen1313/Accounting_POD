@@ -7,7 +7,7 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "test": "echo \"No tests specified\" && exit 0"
+    "test": "jest"
   },
   "dependencies": {
     "expo": "~48.0.0",
@@ -15,6 +15,15 @@
     "expo-status-bar": "~1.4.0",
     "react": "18.2.0",
     "react-native": "0.71.0",
-    "axios": "^1.4.0"
+    "axios": "^1.4.0",
+    "@react-native-async-storage/async-storage": "^1.17.11"
+  },
+  "devDependencies": {
+    "jest": "^29.5.0",
+    "babel-jest": "^29.5.0",
+    "react-native-dotenv": "^3.3.1"
+  },
+  "jest": {
+    "preset": "react-native"
   }
 }

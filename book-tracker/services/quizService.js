@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { OPENAI_API_KEY } from '@env';
 
 // This function calls OpenAI API to generate quiz questions.
 // Set OPENAI_API_KEY in your environment before running the app.
@@ -19,12 +20,25 @@ export async function generateQuiz(summary) {
       {
         headers: {
           'Content-Type': 'application/json',
-          Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
+          Authorization: `Bearer ${OPENAI_API_KEY}`,
         },
       }
     );
-    return response.data.choices[0].message.content;
+    const content = response.data.choices[0].message.content;
+    try {
+      const parsed = JSON.parse(content);
+      if (!parsed.questions) {
+        throw new Error('Invalid quiz format');
+      }
+      return parsed.questions;
+    } catch (e) {
+      console.error('Invalid quiz format', e);
+      throw new Error('Invalid quiz format');
+    }
   } catch (error) {
+    if (error.message === 'Invalid quiz format') {
+      throw error;
+    }
     console.error('Quiz generation failed', error);
     throw new Error('Unable to generate quiz');
   }
