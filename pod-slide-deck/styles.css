@@ -1,0 +1,267 @@
+:root {
+  --navy: #0f2441;
+  --light-blue: #6ea8d6;
+  --white: #ffffff;
+  --gray: #f0f2f5;
+  --text: #1d2a3a;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", "Inter", sans-serif;
+}
+
+body {
+  background: var(--gray);
+  color: var(--text);
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 32px 48px 24px;
+}
+
+.app-header {
+  background: var(--navy);
+  color: var(--white);
+  border-radius: 20px;
+  padding: 28px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  box-shadow: 0 12px 30px rgba(15, 36, 65, 0.2);
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 12px;
+  color: var(--light-blue);
+  margin-bottom: 6px;
+}
+
+.app-header h1 {
+  font-size: 32px;
+  margin-bottom: 4px;
+}
+
+.subtitle {
+  color: #c8d9ef;
+}
+
+.meeting-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 16px 20px;
+  border-radius: 14px;
+}
+
+.meta-label {
+  text-transform: uppercase;
+  font-size: 11px;
+  letter-spacing: 1px;
+  display: block;
+  color: #c8d9ef;
+}
+
+.meta-edit {
+  display: inline-block;
+  padding: 4px 8px;
+  border-bottom: 1px dashed #c8d9ef;
+}
+
+.deck {
+  flex: 1;
+  position: relative;
+}
+
+.slide {
+  display: none;
+  background: var(--white);
+  border-radius: 20px;
+  padding: 32px;
+  box-shadow: 0 10px 24px rgba(15, 36, 65, 0.08);
+}
+
+.slide.is-active {
+  display: block;
+}
+
+.slide-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.slide-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.slide-header h2 {
+  font-size: 26px;
+  color: var(--navy);
+}
+
+.icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: var(--light-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+}
+
+.slide-subtitle {
+  color: #5a6b82;
+}
+
+.agenda {
+  display: grid;
+  gap: 12px;
+  font-size: 18px;
+}
+
+.list {
+  display: grid;
+  gap: 12px;
+}
+
+.list-item {
+  padding: 14px 16px;
+  border-radius: 12px;
+  background: var(--gray);
+  display: grid;
+  gap: 6px;
+}
+
+.list-item strong {
+  color: var(--navy);
+}
+
+.list-item .status {
+  font-size: 12px;
+  color: #5b6b7e;
+}
+
+.empty {
+  padding: 16px;
+  background: #eef2f6;
+  border-radius: 12px;
+  color: #5b6b7e;
+}
+
+.note-area {
+  border-top: 1px solid #dbe2ea;
+  padding-top: 16px;
+  display: grid;
+  gap: 8px;
+}
+
+.note-area textarea {
+  min-height: 90px;
+  resize: vertical;
+  border-radius: 10px;
+  padding: 12px;
+  border: 1px solid #cdd5de;
+}
+
+.save-note {
+  align-self: flex-start;
+  background: var(--navy);
+  color: var(--white);
+  border: none;
+  border-radius: 8px;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+.note-status,
+.form-status {
+  font-size: 12px;
+  color: #4e5d70;
+}
+
+.entry-form {
+  display: grid;
+  gap: 16px;
+}
+
+.entry-form label {
+  display: grid;
+  gap: 8px;
+  font-weight: 600;
+  color: var(--navy);
+}
+
+.entry-form input,
+.entry-form textarea,
+.entry-form select {
+  border: 1px solid #cdd5de;
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-size: 14px;
+}
+
+.entry-form button {
+  justify-self: start;
+  background: var(--light-blue);
+  color: var(--navy);
+  border: none;
+  border-radius: 8px;
+  padding: 10px 18px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.deck-controls {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.deck-controls button {
+  background: var(--navy);
+  color: var(--white);
+  border: none;
+  border-radius: 10px;
+  padding: 10px 18px;
+  cursor: pointer;
+}
+
+.progress {
+  flex: 1;
+  height: 10px;
+  background: #d7dee7;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  width: 0;
+  background: var(--light-blue);
+  transition: width 0.3s ease;
+}
+
+@media (max-width: 900px) {
+  .app {
+    padding: 24px;
+  }
+
+  .app-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

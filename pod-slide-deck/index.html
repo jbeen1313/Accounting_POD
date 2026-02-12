@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Accounting POD Weekly Meeting Deck</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="app-header">
+      <div>
+        <p class="eyebrow">Accounting POD</p>
+        <h1>Weekly Meeting Deck</h1>
+        <p class="subtitle">Progress • Challenges • Action Items • Priorities</p>
+      </div>
+      <div class="meeting-meta">
+        <div>
+          <span class="meta-label">Week Of</span>
+          <span id="weekOf"></span>
+        </div>
+        <div>
+          <span class="meta-label">Facilitator</span>
+          <span contenteditable="true" class="meta-edit">Add name</span>
+        </div>
+      </div>
+    </header>
+
+    <main class="deck">
+      <section class="slide is-active" data-slide="0">
+        <div class="slide-content">
+          <h2>Agenda</h2>
+          <ul class="agenda">
+            <li>Team progress snapshot</li>
+            <li>Top challenges & blockers</li>
+            <li>Action items for the week</li>
+            <li>Key priorities & focus areas</li>
+          </ul>
+          <div class="note-area">
+            <label for="agendaNote">Notes</label>
+            <textarea id="agendaNote" placeholder="Capture agenda notes..."></textarea>
+            <button class="save-note" data-note="agenda">Save note</button>
+            <p class="note-status" data-status="agenda"></p>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide" data-slide="1">
+        <div class="slide-content">
+          <div class="slide-header">
+            <div class="icon">📈</div>
+            <h2>Progress Update</h2>
+          </div>
+          <p class="slide-subtitle">Highlights of completed work and milestones.</p>
+          <div class="list" id="progressList"></div>
+          <div class="note-area">
+            <label for="progressNote">Notes</label>
+            <textarea id="progressNote" placeholder="Add notes for progress..."></textarea>
+            <button class="save-note" data-note="progress">Save note</button>
+            <p class="note-status" data-status="progress"></p>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide" data-slide="2">
+        <div class="slide-content">
+          <div class="slide-header">
+            <div class="icon">⚠️</div>
+            <h2>Challenges & Risks</h2>
+          </div>
+          <p class="slide-subtitle">Items requiring escalation or support.</p>
+          <div class="list" id="challengeList"></div>
+          <div class="note-area">
+            <label for="challengeNote">Notes</label>
+            <textarea id="challengeNote" placeholder="Add notes for challenges..."></textarea>
+            <button class="save-note" data-note="challenge">Save note</button>
+            <p class="note-status" data-status="challenge"></p>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide" data-slide="3">
+        <div class="slide-content">
+          <div class="slide-header">
+            <div class="icon">✅</div>
+            <h2>Action Items</h2>
+          </div>
+          <p class="slide-subtitle">Commitments for the week ahead.</p>
+          <div class="list" id="actionList"></div>
+          <div class="note-area">
+            <label for="actionNote">Notes</label>
+            <textarea id="actionNote" placeholder="Add notes for action items..."></textarea>
+            <button class="save-note" data-note="action">Save note</button>
+            <p class="note-status" data-status="action"></p>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide" data-slide="4">
+        <div class="slide-content">
+          <div class="slide-header">
+            <div class="icon">🎯</div>
+            <h2>Weekly Priorities</h2>
+          </div>
+          <p class="slide-subtitle">Focus areas aligned to team goals.</p>
+          <div class="list" id="priorityList"></div>
+          <div class="note-area">
+            <label for="priorityNote">Notes</label>
+            <textarea id="priorityNote" placeholder="Add notes for priorities..."></textarea>
+            <button class="save-note" data-note="priority">Save note</button>
+            <p class="note-status" data-status="priority"></p>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide" data-slide="5">
+        <div class="slide-content">
+          <div class="slide-header">
+            <div class="icon">🗂️</div>
+            <h2>Update the Deck</h2>
+          </div>
+          <p class="slide-subtitle">Add new entries to the database in real time.</p>
+          <form id="entryForm" class="entry-form">
+            <label>
+              Category
+              <select name="category" required>
+                <option value="progress">Progress</option>
+                <option value="challenges">Challenges</option>
+                <option value="actions">Action Items</option>
+                <option value="priorities">Priorities</option>
+              </select>
+            </label>
+            <label>
+              Owner
+              <input type="text" name="owner" placeholder="Team member" required />
+            </label>
+            <label>
+              Description
+              <textarea name="detail" rows="3" placeholder="Describe the update" required></textarea>
+            </label>
+            <label>
+              Status
+              <select name="status" required>
+                <option value="On Track">On Track</option>
+                <option value="Needs Help">Needs Help</option>
+                <option value="At Risk">At Risk</option>
+              </select>
+            </label>
+            <button type="submit">Save update</button>
+            <p class="form-status" id="formStatus"></p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="deck-controls">
+      <button id="prevBtn">Previous</button>
+      <div class="progress">
+        <div class="progress-bar" id="progressBar"></div>
+      </div>
+      <button id="nextBtn">Next</button>
+    </footer>
+  </div>
+
+  <script src="db.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
